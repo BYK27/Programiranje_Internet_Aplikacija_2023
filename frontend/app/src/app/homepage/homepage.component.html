@@ -1,0 +1,141 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-7">
+            <mdb-carousel [controls]="true" [indicators]="true">
+                <mdb-carousel-item>
+                  <img
+                    src="./assets/ordinacija1.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                    layout-fill
+                  />
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                  <img
+                    src="./assets/ordinacija2.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                  <img
+                    src="./assets/ordinacija3.jpg"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                    <img
+                      src="./assets/ordinacija4.jpg"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </mdb-carousel-item>
+                  <mdb-carousel-item>
+                    <img
+                      src="./assets/ordinacija5.jpg"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                  </mdb-carousel-item>
+                  <mdb-carousel-item>
+                    <img
+                      src="./assets/ordinacija6.jpg"
+                      class="d-block w-100"
+                      alt="..."
+                    />
+                </mdb-carousel-item>
+            </mdb-carousel>
+        </div>
+        
+        <div class="col-3">
+            <div class="opis">
+                <span style="color: #0053a1; text-shadow: 0px 2px #d8d7d6; font-weight: 600; font-size: 16pt;">Thinkers</span> ordinacija je osnovana 1893. godine u staroj provinciji topolske opštine Krćevac. Od starih dana lečimo svakakve tegobe, sa asortimanom talentovanih i kvalifikovanih lekara u svom repertoaru. Fokusom na kvalitet doktorka i doktora, Vama a i Vašim najbližima, pružamo ne samo medicinske usluge, već i priliku za poverenje i opuštenost.
+                <hr>
+                Ordinacija je osnovana od strane tima Thinkers, čija tim menadžerka je predložila ideju proširenja biznisa u medicinskom opsegu. Od tog trenutka je cela površina Srbije bogato zablistala, i procenat obolelih je pao za osamdeset i sedam procenata. Ovo zaslugu ne preuzima sama ordinacija, već čast duguje svim ljudima koji su bili bolesni.
+                <hr>
+                Zakazivanje pregleda je moguće uraditi jedino nakon uspešnog prijavljivanja u sistem. Kao neregistrovan korisnik, možete pogledati galeriju slika ordinacije, kao i širok izbor naših briljantnih doktorka i doktora. Zakazivanje pregleda se radi isključivo elektronskim putem.
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+
+
+<br>
+
+<hr>
+<form class="text-center border border-light p-5">
+<table class="table table-strped text-white table-hover">
+    <thead>
+        <tr>
+            <th scope="col" >
+                Profilna slika
+            </th>
+            <th scope="col">
+                <label for="ime" (click)="sortIme()">Ime</label>
+            </th>
+            <th scope="col">
+                <label for="prezime" (click)="sortPrezime()">Prezime</label>
+            </th>
+            <th scope="col">
+                <label for="specijalizacija" (click)="sortSpecijalizacija()">Specijalizacija</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of sviLekari">
+            <td><img alt="Slika profila {{l.ime}} {{l.prezime}}" class="images"  width="200" height="200" src="http://localhost:4000/uploads/{{l.slika}}"/></td>
+            <td class="text-center">{{l.ime}}</td>
+            <td>{{l.prezime}}</td>
+            <td>{{l.specijalizacija}}</td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<form class="text-center border border-light p-5">
+<div class="flex-container">
+    <div class="row">
+        <div class="col-3"><input type="text" placeholder="Ime" class="form-control mb-4" name="imePretraga" [(ngModel)]="imePretraga"></div>
+        <div class="col-3"><input type="text" placeholder="Prezime" class="form-control mb-4" name="prezimePretraga" [(ngModel)]="prezimePretraga"></div>
+        <div class="col-3"><input type="text" placeholder="Specijalizacija" class="form-control mb-4" name="specijalizacijaPretraga" [(ngModel)]="specijalizacijaPretraga"></div>
+        <div class="col-3"><button class="btn btn-outline-primary" (click)="pretrazi()">Pretraži</button></div>
+    </div>
+</div>
+</form>
+<!--REZULTATI PRETRAGE-->
+<form class="text-center border border-light p-5">
+    <div *ngIf="rezultatiPretraga!=null">
+        <table class="table table-strped text-white table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" >
+                        Profilna slika
+                    </th>
+                    <th scope="col">
+                        Ime
+                    </th>
+                    <th scope="col">
+                        Prezime
+                    </th>
+                    <th scope="col">
+                        Specijalizacija
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of rezultatiPretraga">
+                    <td><img alt="Slika profila {{l.ime}} {{l.prezime}}" class="images"  width="200" height="200" src="http://localhost:4000/uploads/{{l.slika}}"/></td>
+                    <td >{{l.ime}}</td>
+                    <td>{{l.prezime}}</td>
+                    <td>{{l.specijalizacija}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+<ng-template #nemaLekara>
+    Ne postoje lekare sa zadatim parametrima.
+</ng-template>
+

@@ -1,0 +1,31 @@
+<div class="container-fluid full-height">
+    <form class="text-center border border-light p-5">
+        <div class="row">
+            <div class="col">
+                <p class="h4 mb-4">Prijava</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Korisničko ime" name="kor_ime" [(ngModel)]="kor_ime">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Lozinka" name="lozinka" [(ngModel)]="lozinka">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-primary" (click)="login()">Prijava</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Nemate nalog?
+                    <a routerLink="/register">Registrujte se!</a>
+                </p>
+            </div>
+        </div>    
+    </form>
+    </div>

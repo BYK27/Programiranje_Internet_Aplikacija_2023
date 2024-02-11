@@ -1,0 +1,10 @@
+.neprocitan{
+    background-color: rgb(255, 217, 217);
+}
+
+.procitan{
+    background-color: rgb(217, 253, 255);
+}
+.full-height {
+    min-height: 100vh;
+}

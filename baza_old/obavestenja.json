@@ -1,0 +1,14 @@
+[
+	{
+		"naziv": "Promocija na nove preglede.",
+		"pacijent": "kaca",
+		"status": "neprocitan",
+		"id": 1
+	},
+	{
+		"naziv": "Promocija na nove preglede.",
+		"pacijent": "jeca",
+		"status": "neprocitan",
+		"id": 2
+	}
+]

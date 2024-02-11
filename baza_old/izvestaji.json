@@ -1,0 +1,26 @@
+[
+	{
+		"datum": "2023-8-12",
+		"vreme": [1, 10],
+		"lekar": "jova",
+		"specijalizacija": "pedijatar",
+		"razlog": "Bol u utrobi.",
+		"dijagnoza": "Debil",
+		"terapija": "prekini",
+		"naredni": "2023-09-01",
+		"pacijent": "pera",
+		"pregled": "Koronavirus"
+	},
+	{
+		"datum": "2023-8-12",
+		"vreme": [1, 10],
+		"lekar": "jova",
+		"specijalizacija": "pedijatar",
+		"razlog": "Bol u utrobi.",
+		"dijagnoza": "Debil",
+		"terapija": "prekini",
+		"naredni": "2023-09-01",
+		"pacijent": "pera",
+		"pregled": "Koronavirus"
+	}
+]

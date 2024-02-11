@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "64d6108e210681074e3484c3"
+  },
+  "naziv": "pedijatar"
+},
+{
+  "_id": {
+    "$oid": "64d6108e210681074e3484c4"
+  },
+  "naziv": "pulmolog"
+},
+{
+  "_id": {
+    "$oid": "64d61a1bb9ac92f6d0f2b9b3"
+  },
+  "naziv": "retinolog",
+  "__v": 0
+}]

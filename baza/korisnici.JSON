@@ -1,0 +1,164 @@
+[{
+  "_id": {
+    "$oid": "64d7f9da210681074e3484e9"
+  },
+  "kor_ime": "minja",
+  "lozinka": "kSi8!fdS92",
+  "ime": "Minja",
+  "prezime": "Minjic",
+  "adresa": "Juzni Bulevar 9",
+  "telefon": "0656677888",
+  "mejl": "minja@gmail.com",
+  "tip": "menadzer",
+  "slika": "avatar.png",
+  "status": "registrovan"
+},
+{
+  "_id": {
+    "$oid": "64e35ad6600b1bdaa8ec4efd"
+  },
+  "kor_ime": "velja",
+  "lozinka": "a2hEm9!Z2ed",
+  "ime": "Veljko",
+  "prezime": "Aleksijevic",
+  "adresa": "Vladete Kovacevica 5",
+  "telefon": "0631122333",
+  "mejl": "velja.aleksijevic@gmail.com",
+  "tip": "pacijent",
+  "slika": "default.png",
+  "status": "registrovan",
+  "slobodan_dan": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e35c2d600b1bdaa8ec4f01"
+  },
+  "kor_ime": "bosko",
+  "lozinka": "b3Mgs!2IBg",
+  "ime": "Ivan",
+  "prezime": "Boskovic",
+  "adresa": "Uzicka 9",
+  "telefon": "0618877666",
+  "mejl": "bosko@protonmail.rs",
+  "tip": "pacijent",
+  "slika": "korisnik1.jpg",
+  "status": "registrovan",
+  "slobodan_dan": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e3612e600b1bdaa8ec4f05"
+  },
+  "kor_ime": "kaca",
+  "lozinka": "eKts!69Vsl",
+  "ime": "Kaca",
+  "prezime": "Petrovic",
+  "adresa": "Vladete Kovacevica 5",
+  "telefon": "0648877666",
+  "mejl": "kaca.petrovic@google.rs",
+  "tip": "pacijent",
+  "slika": "korisnik2.jpg",
+  "status": "registrovan",
+  "slobodan_dan": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e36197600b1bdaa8ec4f09"
+  },
+  "kor_ime": "vuki",
+  "lozinka": "iJsTg!782",
+  "ime": "Vuk",
+  "prezime": "Aleksijevic",
+  "adresa": "Crnotravska 11",
+  "telefon": "0643322444",
+  "mejl": "vuki.aleksijevic@gmail.com",
+  "tip": "pacijent",
+  "slika": "default.png",
+  "status": "odbijen",
+  "slobodan_dan": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e36c3e957265356146ebea"
+  },
+  "kor_ime": "djole",
+  "lozinka": "djOLe2DtV!",
+  "ime": "Djole",
+  "prezime": "Aleksijevic",
+  "adresa": "Paunova 47",
+  "telefon": "0617788999",
+  "mejl": "djole@gmail.com",
+  "tip": "pacijent",
+  "slika": "korisnik3.jpg",
+  "status": "registrovan",
+  "slobodan_dan": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e37661957265356146ec27"
+  },
+  "kor_ime": "david",
+  "lozinka": "jUstVn5DvD?",
+  "ime": "David",
+  "prezime": "Krivosija",
+  "adresa": "Bulevar kneza Aleksandra Karadjordjevica 12",
+  "telefon": "\t0641122332",
+  "mejl": "david@protomail.ab",
+  "tip": "lekar",
+  "slika": "lekar3.jpg",
+  "status": "registrovan",
+  "licenca": "123980",
+  "specijalizacija": "pulmolog",
+  "ordinacija": "69",
+  "slobodan_dan": [
+    "2023-9-23"
+  ],
+  "__v": 0,
+  "godisnji_kraj": "2023-9-21",
+  "godisnji_pocetak": "2023-9-22"
+},
+{
+  "_id": {
+    "$oid": "64e376ce957265356146ec2b"
+  },
+  "kor_ime": "jeca",
+  "lozinka": "DlJl1Ca!Zn",
+  "ime": "Jelica",
+  "prezime": "Mandic",
+  "adresa": "Ustanicka 812a",
+  "telefon": "0635533666",
+  "mejl": "jeca@gmail.com",
+  "tip": "lekar",
+  "slika": "lekar1.jpeg",
+  "status": "registrovan",
+  "licenca": "92391",
+  "specijalizacija": "pedijatar",
+  "ordinacija": "63",
+  "slobodan_dan": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64eb6a36f62cf63ab3d170a0"
+  },
+  "kor_ime": "marija",
+  "lozinka": "h8!jsbSIam",
+  "ime": "Marija",
+  "prezime": "Kukuruzov",
+  "adresa": "Nehurova 12",
+  "telefon": "0602288111",
+  "mejl": "marija.kukuruz@yahoo.ns",
+  "tip": "lekar",
+  "slika": "default.png",
+  "status": "registrovan",
+  "licenca": "032189",
+  "specijalizacija": "retinolog",
+  "ordinacija": "96a",
+  "slobodan_dan": [],
+  "__v": 0
+}]

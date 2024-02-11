@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "64e3b666aa22831814487f99"
+  },
+  "naziv": "Promocija na nove preglede.",
+  "pacijent": "kaca",
+  "status": "procitan",
+  "id": 1
+},
+{
+  "_id": {
+    "$oid": "64e3b666aa22831814487f9a"
+  },
+  "naziv": "Promocija na nove preglede.",
+  "pacijent": "jeca",
+  "status": "neprocitan",
+  "id": 2
+},
+{
+  "_id": {
+    "$oid": "64ecc55486290e225f134456"
+  },
+  "naziv": "Vaš pregled Preventivni pregled sa početkom u 11:00 je za 24 časa.",
+  "pacijent": "pera",
+  "status": "procitan",
+  "id": 3,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecc5ef86290e225f1344a5"
+  },
+  "naziv": "Vaš pregled Preventivni pregled je otkazan.",
+  "pacijent": "pera",
+  "status": "procitan",
+  "id": 4,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd5e186290e225f134579"
+  },
+  "naziv": "Vaš pregled Koronatest je otkazan.",
+  "pacijent": "bosko",
+  "status": "procitan",
+  "id": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecdff186290e225f13466a"
+  },
+  "naziv": "Popust na sve preglede sledeće nedelje.",
+  "pacijent": "velja",
+  "status": "neprocitan",
+  "id": 6,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecdff186290e225f13466c"
+  },
+  "naziv": "Popust na sve preglede sledeće nedelje.",
+  "pacijent": "bosko",
+  "status": "procitan",
+  "id": 7,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecdff186290e225f13466e"
+  },
+  "naziv": "Popust na sve preglede sledeće nedelje.",
+  "pacijent": "djole",
+  "status": "neprocitan",
+  "id": 9,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecdff186290e225f134670"
+  },
+  "naziv": "Popust na sve preglede sledeće nedelje.",
+  "pacijent": "kaca",
+  "status": "neprocitan",
+  "id": 8,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecdffc86290e225f13467c"
+  },
+  "naziv": "Vaš pregled Rak test sa početkom u 11:00 je za 24 časa.",
+  "pacijent": "bosko",
+  "status": "procitan",
+  "id": 11,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecdffc86290e225f13467e"
+  },
+  "naziv": "Vaš pregled Pregled pluca sa početkom u 15:00 je za 24 časa.",
+  "pacijent": "bosko",
+  "status": "procitan",
+  "id": 12,
+  "__v": 0
+}]

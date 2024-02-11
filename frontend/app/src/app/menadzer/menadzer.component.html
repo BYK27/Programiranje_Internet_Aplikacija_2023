@@ -1,0 +1,409 @@
+<nav class="navbar navbar-expand navbar-light" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="container-fluid">
+      <a class="navbar-brand">Meni</a>
+        <div class="collapse navbar-collapse" id="navbarLeftAlignExample" mdbCollapse>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimPregled()">Pegled</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimAzurirajPacijente()">Pacijent</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimAzurirajLekare()">Lekar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimDodajLekare()">Dodavanje</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimRegistracija()">Registracije</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimLekarskiZahtevi()">Zahtevi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimAkcije()">Akcije</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div *ngIf="rezim=='pregled'">
+    <form class="text-center border border-light p-5">
+    
+    <div class="flex-container">
+        
+    <table class="table table-strped text-white table-hover">
+        <thead>
+            <tr><th colspan="4"><div class="p-3 text-center bg-light">
+                <h3 class="mb-3">Pregled lekara</h3>
+            </div></th></tr>
+            <tr>
+                <th scope="col" >
+                    Profilna slika
+                </th>
+                <th scope="col">
+                    Ime
+                </th>
+                <th scope="col">
+                    Prezime
+                </th>
+                <th scope="col">
+                    Specijalizacija
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let l of sviLekari">
+                <td><img alt="Slika profila {{l.ime}} {{l.prezime}}" class="images"  width="200" height="200" src="http://localhost:4000/uploads/{{l.slika}}"/></td>
+                <td >{{l.ime}}</td>
+                <td>{{l.prezime}}</td>
+                <td>{{l.specijalizacija}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <br><br>
+    <div class="p-3 text-center bg-light">
+        <h3 class="mb-3">Pregled pacijenata</h3>
+    </div>
+    <table class="table table table-strped text-white table-hover">
+        <thead>
+            <tr>
+                <th scope="col" >
+                    Profilna slika
+                </th>
+                <th scope="col">
+                    Ime
+                </th>
+                <th scope="col">
+                    Prezime
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let l of sviPacijenti">
+                <td><img alt="Slika profila {{l.ime}} {{l.prezime}}" class="images"  width="200" height="200" src="http://localhost:4000/uploads/{{l.slika}}"/></td>
+                <td >{{l.ime}}</td>
+                <td>{{l.prezime}}</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</div>
+
+<div *ngIf="rezim=='azuriraj_pacijente'">
+    <form class="text-center border border-light p-5">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Ime željenog pacijenta:</td>
+                <td>
+                    <select  class="form-control" name="taj_lekar_kor_ime" [(ngModel)]="taj_lekar_kor_ime" (change)="taj_lekar_azur()">
+                        <option value="{{l.kor_ime}}" *ngFor="let l of sviPacijenti">
+                            {{l.ime}}
+                        </option>
+                    </select>
+                </td>
+                <td></td>
+                <td *ngIf="taj_lekar_kor_ime == null"><button class="btn btn-outline-danger" disabled>Obriši</button></td>
+                <td *ngIf="taj_lekar_kor_ime != null"><button class="btn btn-outline-danger" (click)="obrisi()">Obriši</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Ime:</td>
+                <td >{{taj_lekar.ime}}</td>
+                <td><input type="text"  class="form-control" name="novoIme" [(ngModel)]="novoIme" placeholder="Ažurirano ime"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajIme()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Prezime:</td>
+                <td >{{taj_lekar.prezime}}</td>
+                <td><input type="text"   class="form-control" name="novoPrezime" [(ngModel)]="novoPrezime" placeholder="Ažurirano prezime"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajPrezime()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Adresa:</td>
+                <td >{{taj_lekar.adresa}}</td>
+                <td><input type="text"  class="form-control" name="novaAdresa" [(ngModel)]="novaAdresa" placeholder="Ažurirana adresa"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajAdresu()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Telefon:</td>
+                <td >{{taj_lekar.telefon}}</td>
+                <td><input type="tel"  class="form-control" name="noviTelefon" [(ngModel)]="noviTelefon" placeholder="Ažurirani telefon"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajTelefon()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td colspan="2">
+                    <input type="file"  class="form-control" name="novaSlika" [(ngModel)]="novaSlika" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/jpeg"/>
+                </td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                        Upload
+                    </button>
+                </td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajSliku()">Ažuriraj</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+</div>
+
+<div *ngIf="rezim=='azuriraj_lekare'">
+    <form class="text-center border border-light p-5">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Ime željenog lekara:</td>
+                <td>
+                    <select  class="form-control" name="taj_lekar_kor_ime" [(ngModel)]="taj_lekar_kor_ime" (change)="taj_lekar_azur()">
+                        <option value="{{l.kor_ime}}" *ngFor="let l of sviLekari">
+                            {{l.ime}}
+                        </option>
+                    </select>
+                </td>
+                <td>&nbsp;</td>
+                <td *ngIf="taj_lekar_kor_ime == null"><button class="btn btn-outline-danger" disabled>Obriši</button></td>
+                <td *ngIf="taj_lekar_kor_ime != null"><button class="btn btn-outline-danger" (click)="obrisi()">Obriši</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Ime:</td>
+                <td >{{taj_lekar.ime}}</td>
+                <td><input type="text"  class="form-control" name="novoIme" [(ngModel)]="novoIme" placeholder="Ažurirano ime"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajIme()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Prezime:</td>
+                <td >{{taj_lekar.prezime}}</td>
+                <td><input type="text" class="form-control" name="novoPrezime" [(ngModel)]="novoPrezime" placeholder="Ažurirano prezime"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajPrezime()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Adresa:</td>
+                <td >{{taj_lekar.adresa}}</td>
+                <td><input type="text" class="form-control" name="novaAdresa" [(ngModel)]="novaAdresa" placeholder="Ažurirana adresa"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajAdresu()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Telefon:</td>
+                <td >{{taj_lekar.telefon}}</td>
+                <td><input type="tel" class="form-control" name="noviTelefon" [(ngModel)]="noviTelefon" placeholder="Ažurirani telefon"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajTelefon()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Broj licence:</td>
+                <td >{{taj_lekar.licenca}}</td> 
+                <td><input type="number" class="form-control" name="novaLicenca" [(ngModel)]="novaLicenca" placeholder="Ažurirana licenca"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajLicencu()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null"> 
+                <td>Specijalizacija:</td>
+                <td >{{taj_lekar.specijalizacija}}</td>
+                <td>
+                    <select name="novaSpecijalizacija" class="form-control" [(ngModel)]="novaSpecijalizacija" placeholder="Ažurirana specijalizacija">
+                        <option *ngFor="let s of sveSpecijalizacije" value="{{s.naziv}}">{{s.naziv}}</option>
+                    </select>
+                </td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajSpecijalizaciju()">Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td>Ogranak ordinacije:</td>
+                <td >{{taj_lekar.ordinacija}}</td>
+                <td><input type="text" class="form-control" name="novaOrdinacija" [(ngModel)]="novaOrdinacija" placeholder="Ažurirana ordinacija"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajOrdinaciju()" >Ažuriraj</button></td>
+            </tr>
+            <tr *ngIf="taj_lekar != null">
+                <td colspan="2">
+                    <input type="file" class="form-control" name="novaSlika" [(ngModel)]="novaSlika" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/jpeg"/>
+                </td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                        Upload
+                    </button>
+                </td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajSliku()">Ažuriraj</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</div>
+
+<div *ngIf="rezim == 'dodaj_lekare'">
+    <form class="text-center border border-light p-5">
+        <div class="flex-container">
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" id="ime" name="ime" class="form-control" placeholder="Ime" [(ngModel)]="ime">
+                </div>
+                <div class="col-6">
+                    <input type="text" id="prezime" name="prezime" class="form-control" placeholder="Prezime" [(ngModel)]="prezime">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="kor_ime" name="kor_ime" class="form-control mb-4" placeholder="Korisničko ime" [(ngModel)]="kor_ime">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="password" id="lozinka" name="lozinka" class="form-control mb-4" placeholder="Lozinka" [(ngModel)]="lozinka">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="adresa" name="adresa" class="form-control mb-4" placeholder="Adresa" [(ngModel)]="adresa">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="tel" id="telefon" name="telefon" class="form-control mb-4" placeholder="Kontakt telefon" [(ngModel)]="telefon">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="email" id="mejl" name="mejl" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="mejl">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="licenca" name="licenca" class="form-control mb-4" placeholder="Licenca" [(ngModel)]="licenca">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <select name="specijalizacija"  class="form-control mb-4" [(ngModel)]="specijalizacija" placeholder="Ažurirana specijalizacija">
+                        <option *ngFor="let s of sveSpecijalizacije" value="{{s.naziv}}">{{s.naziv}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="ordinacija" name="ordinacija" class="form-control mb-4" placeholder="Ordinacija" [(ngModel)]="ordinacija">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <input type="file" name="slika" class="form-control" [(ngModel)]="slika" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/jpeg"/>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-secondary" type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                        Upload
+                    </button>
+                </div>
+                <!-- <div class="col">
+                    <input type="file" id="slika" name="slika" class="form-control mb-4" [(ngModel)]="slika">
+                </div> -->
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <button  class="btn btn-outline-primary" type="submit" (click)="register()">Dodaj</button>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>
+
+<div *ngIf="rezim == 'registracije'">
+    <table *ngIf="neregistrovaniKorisnici != null" class="table">
+        <tbody>
+            <tr *ngFor="let n of neregistrovaniKorisnici">
+                <td>{{n.ime}} {{n.prezime}}</td>
+                <td><button class="btn btn-outline-info" (click)="potvrdi(n.kor_ime)">Potvrdi</button></td>
+                <td><button class="btn btn-outline-danger" (click)="odbij(n.kor_ime)">Odbij</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <span *ngIf="neregistrovaniKorisnici == null || neregistrovaniKorisnici.length == 0" class="text-center border border-light p-5" style="color: red;">Ne postoje korisnici koji čekaju registraciju.</span>
+</div>
+
+<div *ngIf="rezim == 'lekarski_zahtevi'">
+    <form class="text-center border border-light p-5">
+        <p class="h4 mb-4">Pregledi</p>
+        <div class="flex-container">
+            <div class="row">
+                <div class="col-5">Nova specijalizacija:</div>
+                <div class="col-5">
+                    <input type="text"  class="form-control" name="dodataSpecijalizacija" [(ngModel)]="dodataSpecijalizacija">
+                </div>
+                <div class="col-2">
+                    <button (click)="dodajSpecijalizaciju()" class="btn btn-outline-info" >Dodaj</button>
+                </div>
+            </div>
+            <br>
+            <div class="row" *ngFor="let b of sviBazniPregledi">
+                <div class="col-4"><label for="naziv" (click)="azurStaviPregled(b.naziv)">{{b.naziv}}</label></div>
+                <div class="col-3"><label for="naziv" (click)="azurStaviPregled(b.naziv)">{{b.trajanje[0]}}h {{b.trajanje[1]}}min</label></div>
+                <div class="col-3"><label for="naziv" (click)="azurStaviPregled(b.naziv)">{{b.cena}}RSD</label></div>
+            </div>
+            <br><br>
+            <div class="row" *ngIf="azuriraniPregled != null">
+                <div class="col"><h3>{{azuriraniPregled.naziv}}</h3></div>
+                <div class="col-2"><button class="btn btn-outline-danger" (click)="deletePregled()">Obriši</button></div>
+            </div>
+            <div class="row" *ngIf="azuriraniPregled != null">
+                <div class="col-10"><input type="text" class="form-control" name="azuriraniNaziv" [(ngModel)]="azuriraniNaziv" placeholder="Novi naziv"></div>
+                <div class="col-2"> <button class="btn btn-outline-secondary" (click)="azurNazivPregleda()">Ažuriraj</button></div>
+            </div>
+
+            <div class="row" *ngIf="azuriraniPregled != null">
+                <div class="col-5"> <input type="number" class="form-control" max="3"  name="azuriraniSat" [(ngModel)]="azuriraniSat"  placeholder="h" (change)="proveraSati()"></div>
+                <div class="col-5"><input type="number" class="form-control" max="59" name="azuriraniMinut" [(ngModel)]="azuriraniMinut"  placeholder="min" (change)="proveraMinuta()"></div>
+                <div class="col-2"> <button class="btn btn-outline-secondary" (click)="azurTrajanjePregleda()">Ažuriraj</button></div>
+            </div>
+
+            <div class="row" *ngIf="azuriraniPregled != null">
+                <div class="col-10"><input type="number" class="form-control"  name="azuriranaCena" [(ngModel)]="azuriranaCena"  placeholder="RSD" min="0" (change)="proveraCene()"></div>
+                <div class="col-2"> <button class="btn btn-outline-secondary" (click)="azurCenuPregleda()">Ažuriraj</button></div>
+            </div>
+
+            <div class="row" *ngIf="azuriraniPregled != null">
+                <div class="col-10">
+                    <select class="form-control" name="azuriranaSpecijalizacija" [(ngModel)]="azuriranaSpecijalizacija">
+                        <option *ngFor="let s of sveSpecijalizacije" value="{{s.naziv}}" >{{s.naziv}}</option>
+                    </select>
+                </div>
+                <div class="col-2"> <button class="btn btn-outline-secondary" (click)="azurSpecijalizacijuPregleda()">Ažuriraj</button></div>
+            </div>
+        </div>
+        <br><br><br>
+        <p *ngIf="sviPendingPregledi.length > 0; else noPendingPregledi" class="h4 mb-4">Novi pregledi</p>
+        <table *ngIf="sviPendingPregledi != null" class="table">
+            <tbody>
+                <tr *ngFor="let p of sviPendingPregledi">
+                    <td>{{p.naziv}}</td>
+                    <td><button class="btn btn-outline-info" (click)="potvrdiNoviPregled(p.naziv)">Potvrdi</button></td>
+                    <td><button class="btn btn-outline-danger" (click)="odbijNoviPregled(p.naziv)">Odbij</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+<div *ngIf="rezim == 'akcije'">
+    <form class="text-center border border-light p-5">
+        <div class="flex-container">
+            <div class="row">
+                <div class="col-10">
+                    <input class="form-control" type="text" name="akcijaNaziv" [(ngModel)]="akcijaNaziv" placeholder="Akcija">
+                </div>
+                <div class="col-2">
+                    <button class="form-control" (click)="dodajAkciju()">Dodaj</button>
+                </div>
+            </div>    
+        </div>
+    </form>
+</div>
+
+<p>Promena
+    <a routerLink="/promena_lozinke">lozinke</a>.
+</p>
+
+<ng-template #noPendingPregledi>
+    <span style="text-align: center; color: red;">Ne postoje pregledi koji čekaju potvrdu. <br></span>
+</ng-template>

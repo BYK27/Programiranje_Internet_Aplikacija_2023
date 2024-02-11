@@ -1,0 +1,42 @@
+[
+	{
+		"lekar": "jova",
+		"naziv": "Vakcijanacija deteta",
+		"trajanje": [0, 15],
+		"cena": 1000,
+		"status": "bazni",
+		"specijalizacija": "pedijatar"
+	},
+	{
+		"lekar": "jova",
+		"naziv": "Preventivni pregled",
+		"trajanje": [1, 10],
+		"cena": "750",
+		"status": "bazni",
+		"specijalizacija": "pedijatar"
+	},
+	{
+		"lekar": "jova",
+		"naziv": "Testiranje refleksa",
+		"trajanje": [2, 30],
+		"cena": "1750",
+		"status": "bazni",
+		"specijalizacija": "pedijatar"
+	},
+	{
+		"lekar": "ana",
+		"naziv": "Koronatest",
+		"trajanje": [0, 30],
+		"cena": "2550",
+		"status": "bazni",
+		"specijalizacija": "pulmolog"
+	},
+	{
+		"lekar": "ana",
+		"naziv": "Život punim plućima",
+		"trajanje": [5, 30],
+		"cena": "2550",
+		"status": "bazni",
+		"specijalizacija": "pulmolog"
+	}
+]

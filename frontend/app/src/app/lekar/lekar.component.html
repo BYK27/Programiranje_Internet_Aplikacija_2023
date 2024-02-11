@@ -1,0 +1,293 @@
+<nav class="navbar navbar-expand navbar-light" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="container-fluid">
+      <a class="navbar-brand">Meni</a>
+        <div class="collapse navbar-collapse" id="navbarLeftAlignExample" mdbCollapse>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimProfil()">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimPregledi()">Pregledi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="rezimRazno()">Razno</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--PRVA STAVKA-->
+<div id="profil" name="profil" *ngIf="rezim == 'profil'" class="form-group col-md-6">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Ime:</td>
+                <td >{{korisnik.ime}}</td>
+                <td><input type="text" name="novoIme" [(ngModel)]="novoIme" placeholder="Ažurirano ime" class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajIme()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Prezime:</td>
+                <td >{{korisnik.prezime}}</td>
+                <td><input type="text" name="novoPrezime" [(ngModel)]="novoPrezime" placeholder="Ažurirano prezime" class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajPrezime()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Adresa:</td>
+                <td >{{korisnik.adresa}}</td>
+                <td><input type="text" name="novaAdresa" [(ngModel)]="novaAdresa" placeholder="Ažurirana adresa" class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajAdresu()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Mejl adresa:</td>
+                <td >{{korisnik.mejl}}</td>
+                <td><input type="text" name="noviMejl" [(ngModel)]="noviMejl" placeholder="Ažurirani mejl" disabled class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajAdresu()"disabled>Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Telefon:</td>
+                <td >{{korisnik.telefon}}</td>
+                <td><input type="tel" name="noviTelefon" [(ngModel)]="noviTelefon" placeholder="Ažurirani telefon" class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajTelefon()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Broj licence:</td>
+                <td >{{korisnik.licenca}}</td> 
+                <td><input type="text" name="novaLicenca" [(ngModel)]="novaLicenca" placeholder="Ažurirana licenca" class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajLicencu()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Specijalizacija:</td>
+                <td >{{korisnik.specijalizacija}}</td>
+                <td>
+                    <select name="novaSpecijalizacija" [(ngModel)]="novaSpecijalizacija" placeholder="Ažurirana specijalizacija" class="form-control"> 
+                        <option *ngFor="let s of sveSpecijalizacije" value="{{s.naziv}}">{{s.naziv}}</option>
+                    </select>
+                </td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajSpecijalizaciju()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td>Ogranak ordinacije:</td>
+                <td >{{korisnik.ordinacija}}</td>
+                <td><input type="text" name="novaOrdinacija" [(ngModel)]="novaOrdinacija" placeholder="Ažurirana ordinacija" disabled class="form-control"></td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajOrdinaciju()" disabled>Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="file" class="form-control" name="novaSlika" [(ngModel)]="novaSlika" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/jpeg"/>
+                </td>
+                <td>
+                    <button class="btn btn-outline-secondary" type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                        Upload
+                    </button>
+                </td>
+                <td><button class="btn btn-outline-secondary" (click)="azurirajSliku()">Ažuriraj</button></td>
+            </tr>
+            <tr>
+                <td colspan="4">Željeni pregledi:</td>
+            </tr>
+            <tr *ngFor="let b of sviBazniPregledi">
+                <td colspan="4" *ngIf="b.lekar == korisnik.kor_ime"><input type="checkbox" (change)="updateBazniLekarByNaziv(b.naziv)"  disabled> {{b.naziv}}</td>
+                <td colspan="4" *ngIf="b.lekar != korisnik.kor_ime"><input type="checkbox" (change)="updateBazniLekarByNaziv(b.naziv)"> {{b.naziv}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+<!--DRUGA STAVKA-->
+<div id="pregledi" name="pregledi" *ngIf="rezim == 'pregledi'" class="form-group col-md-6">
+    <table class="table" *ngIf="triZakazanaPregledaLekara.length > 0 ; else noPregledMessage">
+        <thead>
+            <th>Naziv</th>
+            <th>Datum</th>
+            <th>Pacijent</th>
+            <th>Početak</th>
+            <th>Komentar</th>
+            <th>Otkaži</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let z of triZakazanaPregledaLekara">
+                <td><label for="prikaziIzvestajPacijenta" (click)="prikaziIzvestajPacijenta(z.pacijent)">{{z.naziv}}</label></td>
+                <td><label for="prikaziIzvestajPacijenta" (click)="prikaziIzvestajPacijenta(z.pacijent)">{{z.datum}}</label></td>
+                <td><label for="prikaziIzvestajPacijenta" (click)="prikaziIzvestajPacijenta(z.pacijent)">{{z.pacijent}}</label></td>
+                <td *ngIf="z.pocetak[1]<10"><label for="prikaziIzvestajPacijenta" (click)="prikaziIzvestajPacijenta(z.pacijent)">{{z.pocetak[0]}}:0{{z.pocetak[1]}}</label></td>
+                <td *ngIf="z.pocetak[1]>=10"><label for="prikaziIzvestajPacijenta" (click)="prikaziIzvestajPacijenta(z.pacijent)">{{z.pocetak[0]}}:{{z.pocetak[1]}}</label></td>
+                <td><input type="text" name="komentar" [(ngModel)]="z.komentar" class="form-control"></td>
+                <td><button class="btn btn-outline-danger" (click)="otkaziPregled(z.naziv, z.lekar, z.pocetak[0], z.pocetak[1], z.datum, z.komentar, z.pacijent)">Otkaži</button></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <full-calendar [options]="calendarOptions" [events]="calendarEvents"></full-calendar>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="izvestajiPacijenta != null" >
+    <table *ngIf="izvestajiPacijenta.length > 0; else noKartonMessage" class="table">
+        <thead>
+            <tr><h3>Izveštaji pacijenta</h3></tr>
+            <tr>
+            <th>Datum</th>
+            <th>Vreme</th>
+            <th>Lekar</th>
+            <th>Razlog</th>
+            <th>Dijagnoza</th>
+            <th>Terapija</th>
+            <th>Datum narednog dolaska</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of izvestajiPacijenta">
+                <td class="col-2">{{i.datum}}</td>
+                <td class="col-1">{{i.vreme[0]}}:{{i.vreme[1]}}</td>
+                <td class="col-1">{{i.lekar}}</td>
+                <td class="col-2">{{i.razlog}}</td>
+                <td class="col-2">{{i.dijagnoza}}</td>
+                <td class="col-2">{{i.terapija}}</td>
+                <td class="col-2">{{i.naredni}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <div *ngIf="preglediBezIzvestaja.length > 0">
+        <h5></h5>
+        <table class="table">
+            <thead>
+                <tr><h3>Pregledi bez izveštaja</h3></tr>
+                <tr>
+                <th>Naziv</th>
+                <th>Cena</th>
+                <th>Datum</th>
+                <th>Pacijent</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of preglediBezIzvestaja">
+                    <td class="col-3">
+                        <label for="getPregledZaIzvestaj" (click)="getPregledZaIzvestaj(p.naziv, p.lekar, p.pocetak, p.datum)">
+                        {{p.naziv}}
+                        </label>
+                    </td>
+                    <td class="col-3">
+                        <label for="getPregledZaIzvestaj" (click)="getPregledZaIzvestaj(p.naziv, p.lekar, p.pocetak, p.datum)">{{p.cena}}</label>
+                        
+                    </td>
+                    <td class="col-3">
+                        <label for="getPregledZaIzvestaj" (click)="getPregledZaIzvestaj(p.naziv, p.lekar, p.pocetak, p.datum)">{{p.datum}}</label>
+                    </td>
+                    <td class="col-3">
+                        <label for="getPregledZaIzvestaj" (click)="getPregledZaIzvestaj(p.naziv, p.lekar, p.pocetak, p.datum)">{{p.pacijent}}</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="preglediBezIzvestaja.length == 0">
+        <span style="color: red;">Trenutno nema pregleda za koje je moguće napisati izveštaj.</span>
+    </div>
+    
+    <form class="text-center border border-light p-5" *ngIf="pregledZaIzvestaj != null">
+        <p class="h4 mb-4">Generisanje izveštaja</p>
+        <div class="flex-container">
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="izvestajRazlog" class="form-control mb-4" placeholder="Razlog dolaska na pregled" name="izvestajRazlog" [(ngModel)]="izvestajRazlog">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="izvestajDijagnoza" class="form-control mb-4" placeholder="Dijagnoza pacijenta" name="izvestajDijagnoza" [(ngModel)]="izvestajDijagnoza">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="izvestajTerapija" class="form-control mb-4" placeholder="Preporučena terapija" name="izvestajTerapija" [(ngModel)]="izvestajTerapija">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="date" id="izvestajNaredni" class="form-control mb-4" placeholder="Datum narednog dolaska" name="izvestajNaredni" [(ngModel)]="izvestajNaredni">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-outline-secondary" (click)="unesiIzvestaj()">Unesi</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>
+
+
+<!--TRECA STAVKA-->
+<div *ngIf="rezim == 'razno'">
+    <form class="text-center border border-light p-5">
+        <p class="h4 mb-4">Dodavanje nove vrste pregleda</p>
+        <div class="flex-container">
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="noviPregledNaziv" class="form-control mb-4" placeholder="Naziv novog pregleda" name="noviPregledNaziv" [(ngModel)]="noviPregledNaziv">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="number" max="3" min="0" id="noviPregledTrajanjeSat" class="form-control mb-4" placeholder="Sati" name="noviPregledTrajanjeSat" [(ngModel)]="noviPregledTrajanjeSat" (change)="proveraSati()">
+                </div>
+                <div class="col-6">
+                    <input type="number" max="59" min="0" id="noviPregledTrajanjeMinut" class="form-control mb-4" placeholder="Minuti" name="noviPregledTrajanjeMinut" [(ngModel)]="noviPregledTrajanjeMinut" (change)="proveraMinuta()">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" id="noviPregledCena" class="form-control mb-4" placeholder="Cena novog pregleda" name="noviPregledCena" [(ngModel)]="noviPregledCena" (change)="proveraCene()">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-outline-primary" (click)="dodajNoviPregled()">Dodaj</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form class="text-center border border-light p-5">
+        <p class="h4 mb-4">Dodavanje godišnjeg odmora i slobodnih dana</p>
+        <div class="flex-container">
+            <div class="row">
+                <div class="col-2">Godišnji odmor</div>
+                <div class="col-4">
+                    <input type="date" id="godisnji_pocetak" class="form-control mb-4" placeholder="Naziv novog godišnjeg" name="godisnji_pocetak" [(ngModel)]="godisnji_pocetak">
+                </div>
+                <div class="col-4">
+                    <input type="date" id="godisnji_kraj" class="form-control mb-4" placeholder="Naziv novog godišnjeg" name="godisnji_kraj" [(ngModel)]="godisnji_kraj">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary" (click)="dodajGodisnjiOdmor()">Dodaj</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">Slobodan dan: </div>
+                <div class="col-7">
+                    <input type="date" id="slobodan_dan" class="form-control mb-4" placeholder="Naziv novog slobodnog dana" name="slobodan_dan" [(ngModel)]="slobodan_dan">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary" (click)="dodajSlobodanDan()">Dodaj</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<p>Promena
+    <a routerLink="/promena_lozinke">lozinke</a>.
+</p>
+
+<ng-template #noKartonMessage>
+    <span style="text-align: center; color: red;">Dati pacijent nema ranijih pregleda. <br></span>
+</ng-template>
+
+<ng-template #noPregledMessage>
+    <span style="text-align: center; color: red;">Lekar nema budućih pregleda. <br></span>
+</ng-template>

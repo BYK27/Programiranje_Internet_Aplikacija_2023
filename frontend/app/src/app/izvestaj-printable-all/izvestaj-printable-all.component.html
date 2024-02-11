@@ -1,0 +1,53 @@
+<div class="container">
+    <div id="pdfTable" #pdfTable>
+        <table>
+            <tbody>
+                <tr *ngFor="let izvestaj of izvestaji">
+                    <td>
+                    <header>
+                        <h1>Izveštaj</h1>
+                        <p>Datum: {{izvestaj.datum}}</p>
+                    </header>
+                    <section>
+                        <h2>Vreme i datum dolaska</h2>
+                        <p>{{izvestaj.vreme[0]}}:{{izvestaj.vreme[1]}} {{izvestaj.datum}}</p>
+                    </section>
+                    <section>
+                        <h2>Podaci o lekaru</h2>
+                        <p>Lekar {{izvestaj.lekar}} specijalizacije {{izvestaj.specijalizacija}}</p>
+                    </section>
+                    <section>
+                        <h2>Informacije o pregledu</h2>
+                        <p>Naziv pregleda: {{izvestaj.pregled}}</p>
+                        <p>Razlog dolaska: {{izvestaj.razlog}}</p>
+                        <p>Dijagnoza: {{izvestaj.dijagnoza}}</p>
+                        <p>Terapija: {{izvestaj.terapija}}</p>
+                        <p>Datum narednog dolaska: {{izvestaj.naredni}}</p>
+                    </section>
+                    <footer>
+                        <p>Izveštaj pregleda samo u ordinaciji.</p>
+                    </footer>
+                </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        
+    </div>
+    <div class="flex-container">
+        <div class="row">
+            <div class="col-2">
+                <button class="btn btn-outline-warning" (click)="downloadAsPDF()">Print</button>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-outline-secondary" (click)="nazad()">Nazad</button>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<section>
+    <p *ngIf="uploaded == true">
+        <qr-code value="{{tester}}" size="300" errorCorrectionLevel="M"></qr-code>
+    </p>
+</section>

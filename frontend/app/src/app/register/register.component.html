@@ -1,0 +1,64 @@
+<form class="text-center border border-light p-5">
+    <p class="h4 mb-4">Registracija</p>
+    <div class="flex-container">
+        <div class="row">
+            <div class="col-6">
+                <input type="text" id="ime" name="ime" class="form-control" placeholder="Ime" [(ngModel)]="ime">
+            </div>
+            <div class="col-6">
+                <input type="text" id="prezime" name="prezime" class="form-control" placeholder="Prezime" [(ngModel)]="prezime">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="text" id="kor_ime" name="kor_ime" class="form-control mb-4" placeholder="Korisničko ime" [(ngModel)]="kor_ime">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="password" id="lozinka" name="lozinka" class="form-control mb-4" placeholder="Lozinka" [(ngModel)]="lozinka">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="password" id="lozinkaPotvrda" name="lozinkaPotvrda" class="form-control mb-4" placeholder="Potvrda lozinke" [(ngModel)]="lozinkaPotvrda">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" id="adresa" name="adresa" class="form-control mb-4" placeholder="Adresa" [(ngModel)]="adresa">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="tel" id="telefon" name="telefon" class="form-control mb-4" placeholder="Kontakt telefon" [(ngModel)]="telefon">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="email" id="mejl" name="mejl" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="mejl">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <input type="file" name="slika" class="form-control" [(ngModel)]="slika" ng2FileSelect [uploader]="uploader" (change)="readUrl($event)" accept="image/x-png,image/jpeg"/>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-outline-secondary" type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                    Upload
+                </button>
+            </div>
+            <!-- <div class="col">
+                <input type="file" id="slika" name="slika" class="form-control mb-4" [(ngModel)]="slika">
+            </div> -->
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <button  class="btn btn-outline-primary" type="submit" (click)="register()">Sign in</button>
+            </div>
+        </div>
+        
+    </div>
+</form>

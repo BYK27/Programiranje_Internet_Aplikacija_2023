@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "64e3b807706451a8f51f2c99"
+  },
+  "datum": "2023-8-24",
+  "vreme": [
+    0,
+    30
+  ],
+  "lekar": "david",
+  "specijalizacija": "pulmolog",
+  "razlog": "Groznica",
+  "dijagnoza": "Koronavirus COVID-19",
+  "terapija": "Brufen 500mg dvaput dnevno.",
+  "naredni": "2023-8-31",
+  "pacijent": "kaca",
+  "pregled": "Koronatest",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64eb65bdf62cf63ab3d16fe3"
+  },
+  "datum": "2023-8-27",
+  "vreme": [
+    3,
+    30
+  ],
+  "lekar": "david",
+  "specijalizacija": "pulmolog",
+  "razlog": "Kasalj",
+  "dijagnoza": "Rak",
+  "terapija": "Da se opusti",
+  "naredni": "2023-8-30",
+  "pacijent": "kaca",
+  "pregled": "Rak test",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64eb7071f62cf63ab3d171ed"
+  },
+  "datum": "2023-8-1",
+  "vreme": [
+    0,
+    30
+  ],
+  "lekar": "david",
+  "specijalizacija": "pulmolog",
+  "razlog": "Groznica, malaksalost",
+  "dijagnoza": "Prehlada",
+  "terapija": "Brufen 250mg tri puta dnevno",
+  "naredni": "2023-9-23",
+  "pacijent": "bosko",
+  "pregled": "Koronatest",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecbffcd56ff06acdbc9ba4"
+  },
+  "datum": "2023-8-28",
+  "vreme": [
+    10,
+    0
+  ],
+  "lekar": "jeca",
+  "specijalizacija": "pedijatar",
+  "razlog": "Kasalj, temperatura",
+  "dijagnoza": "Prehlada",
+  "terapija": "Strepsils plus",
+  "naredni": "2023-8-31",
+  "pacijent": "pera",
+  "pregled": "Vakcijanacija deteta",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd6dc86290e225f134599"
+  },
+  "datum": "2023-7-30",
+  "vreme": [
+    15,
+    0
+  ],
+  "lekar": "david",
+  "specijalizacija": "pulmolog",
+  "razlog": "Bol u grlu.",
+  "dijagnoza": "Bakterijska infekcija.",
+  "terapija": "Odmor.",
+  "naredni": "2023-9-1",
+  "pacijent": "bosko",
+  "pregled": "Pregled pluca",
+  "__v": 0
+}]

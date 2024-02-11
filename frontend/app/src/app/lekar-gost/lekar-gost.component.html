@@ -1,0 +1,91 @@
+<h3>Informacije o lekaru</h3>
+<form class="text-center border border-light p-5">
+<table class="table">
+    <tbody>
+        <tr>
+            <td>Ime lekara: </td>
+            <td>{{lekar.ime}}</td>
+        </tr>
+        <tr>
+            <td>Prezime lekara: </td>
+            <td>{{lekar.prezime}}</td>
+        </tr>
+        <tr>
+            <td>Broj lekarske licence: </td>
+            <td>{{lekar.licenca}}</td>
+        </tr>
+        <tr>
+            <td>Specijalizacija: </td>
+            <td>{{lekar.specijalizacija}}</td>
+        </tr>
+        <tr>
+            <td>Ogranak ordinacije u kojem lekar radi: </td>
+            <td>{{lekar.ordinacija}}</td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<br>
+<h5>Pregledi lekara</h5>
+<table class="table">
+    <thead>
+        <th>Naziv</th>
+        <th>Trajanje</th>
+        <th>Cena</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of sviPregledi">
+            <td>{{p.naziv}}</td>
+            <td>{{p.trajanje[0]}}h {{p.trajanje[1]}}min</td>
+            <td>{{p.cena}} RSD</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<h5>Zakazivanje pregleda</h5>
+<form class="text-center border border-light p-5">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <select class="form-control" name="zakazanNaziv" [(ngModel)]="zakazanNaziv">
+                        <option *ngFor="let p of sviPregledi" value="{{p.naziv}}">{{p.naziv}}</option>
+                    </select>
+                </td>
+                <td>
+                    <input name="zakazanDatum" class="form-control" [(ngModel)]="zakazanDatum" type="datetime-local">
+                </td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)="zakazi()">Zakaži</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+<hr>
+<div class="flex-container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <full-calendar [options]="calendarOptions" [events]="calendarEvents"></full-calendar>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+<form class="text-center border border-light p-5" *ngIf="pritisnut">
+    <div class="flex-container">
+        <div class="row">
+            <div class="col-4" *ngIf="minutPregledaKalendar < 10">Zakaži pregled u {{satPregledaKalendar}}:0{{minutPregledaKalendar}}</div>
+            <div class="col-4" *ngIf="minutPregledaKalendar >= 10">Zakaži pregled u {{satPregledaKalendar}}:{{minutPregledaKalendar}}</div>
+            <div class="col">
+                <select class="form-control" name="nazivPregledaKalendar" [(ngModel)]="nazivPregledaKalendar">
+                    <option *ngFor="let p of sviPregledi" value="{{p.naziv}}">{{p.naziv}}</option> 
+                </select>
+            </div>
+            <div class="col-2"><button (click)="zakaziKalendarom()" class="form-control">Zakaži</button></div>
+        </div>
+    </div>
+</form>
+
+<button class="btn btn-outline-secondary" (click)="nazad()">Nazad</button>

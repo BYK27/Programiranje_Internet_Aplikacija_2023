@@ -1,0 +1,415 @@
+[{
+  "_id": {
+    "$oid": "64d8d3deac3c3e68b3271ef4"
+  },
+  "lekar": "jeca",
+  "naziv": "Vakcijanacija deteta",
+  "trajanje": [
+    0,
+    30
+  ],
+  "cena": 500,
+  "status": "bazni",
+  "specijalizacija": "pedijatar"
+},
+{
+  "_id": {
+    "$oid": "64d8d3deac3c3e68b3271ef5"
+  },
+  "lekar": "jeca",
+  "naziv": "Preventivni pregled",
+  "trajanje": [
+    1,
+    10
+  ],
+  "cena": "750",
+  "status": "bazni",
+  "specijalizacija": "pedijatar"
+},
+{
+  "_id": {
+    "$oid": "64d8d3deac3c3e68b3271ef6"
+  },
+  "lekar": "jeca",
+  "naziv": "Testiranje refleksa",
+  "trajanje": [
+    2,
+    30
+  ],
+  "cena": "1750",
+  "status": "bazni",
+  "specijalizacija": "pedijatar"
+},
+{
+  "_id": {
+    "$oid": "64d8d3deac3c3e68b3271ef7"
+  },
+  "lekar": "david",
+  "naziv": "Koronatest",
+  "trajanje": [
+    0,
+    30
+  ],
+  "cena": "2550",
+  "status": "bazni",
+  "specijalizacija": "pulmolog"
+},
+{
+  "_id": {
+    "$oid": "64d8d3deac3c3e68b3271ef8"
+  },
+  "lekar": "david",
+  "naziv": "Život punim plućima",
+  "trajanje": [
+    2,
+    30
+  ],
+  "cena": "2550",
+  "status": "izbrisan",
+  "specijalizacija": "pulmolog"
+},
+{
+  "_id": {
+    "$oid": "64e38778957265356146ed2c"
+  },
+  "lekar": "david",
+  "naziv": "Rak test",
+  "trajanje": [
+    3,
+    30
+  ],
+  "pocetak": [],
+  "cena": 1500,
+  "status": "bazni",
+  "specijalizacija": "pulmolog",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e3b6e7706451a8f51f2c7a"
+  },
+  "lekar": "david",
+  "naziv": "Koronatest",
+  "trajanje": [
+    0,
+    30
+  ],
+  "pocetak": [
+    18,
+    11
+  ],
+  "cena": 2550,
+  "status": "zakazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2022-8-24",
+  "pacijent": "kaca",
+  "ordinacija": "69",
+  "komentar": "",
+  "izvestaj": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e3bbe7706451a8f51f2cb4"
+  },
+  "lekar": "david",
+  "naziv": "Rak test",
+  "trajanje": [
+    3,
+    30
+  ],
+  "pocetak": [
+    12,
+    30
+  ],
+  "cena": 1500,
+  "status": "otkazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-25",
+  "pacijent": "kaca",
+  "ordinacija": "69",
+  "komentar": "nisam tu brt moi",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e4874a1fd2386a9409d0b2"
+  },
+  "lekar": "david",
+  "naziv": "Koronatest",
+  "trajanje": [
+    0,
+    30
+  ],
+  "pocetak": [
+    12,
+    0
+  ],
+  "cena": 2550,
+  "status": "otkazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-28",
+  "pacijent": "kaca",
+  "ordinacija": "69",
+  "komentar": "Promaklo",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e4e5def148ef1aef804485"
+  },
+  "lekar": "david",
+  "naziv": "Rak test",
+  "trajanje": [
+    3,
+    30
+  ],
+  "pocetak": [
+    19,
+    0
+  ],
+  "cena": 1500,
+  "status": "otkazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-25",
+  "pacijent": "kaca",
+  "ordinacija": "69",
+  "komentar": "Lud sam",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e5033fe34558ba8bf6160a"
+  },
+  "lekar": "david",
+  "naziv": "Rak test",
+  "trajanje": [
+    3,
+    30
+  ],
+  "pocetak": [
+    16,
+    49
+  ],
+  "cena": 1500,
+  "status": "otkazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-28",
+  "pacijent": "kaca",
+  "ordinacija": "69",
+  "komentar": "rgqergge",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e771dea7236bce6f458a45"
+  },
+  "lekar": "david",
+  "naziv": "Koronatest",
+  "trajanje": [
+    0,
+    30
+  ],
+  "pocetak": [
+    15,
+    0
+  ],
+  "cena": 2550,
+  "status": "otkazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-26",
+  "pacijent": "kaca",
+  "ordinacija": "69",
+  "komentar": "",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64eb6e77f62cf63ab3d1716d"
+  },
+  "lekar": "david",
+  "naziv": "Pregled pluca",
+  "trajanje": [
+    3,
+    15
+  ],
+  "pocetak": [],
+  "cena": 3500,
+  "status": "izbrisan",
+  "specijalizacija": "pulmolog",
+  "izvestaj": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecc4f686290e225f134405"
+  },
+  "lekar": "jeca",
+  "naziv": "Preventivni pregled",
+  "trajanje": [
+    1,
+    10
+  ],
+  "pocetak": [
+    11,
+    0
+  ],
+  "cena": 750,
+  "status": "otkazan",
+  "specijalizacija": "pedijatar",
+  "datum": "2023-8-29",
+  "pacijent": "pera",
+  "ordinacija": "63",
+  "komentar": "Nisam dostupan",
+  "izvestaj": false,
+  "obavesten": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd5ac86290e225f134555"
+  },
+  "lekar": "david",
+  "naziv": "Koronatest",
+  "trajanje": [
+    0,
+    30
+  ],
+  "pocetak": [
+    10,
+    0
+  ],
+  "cena": 2550,
+  "status": "otkazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-29",
+  "pacijent": "bosko",
+  "ordinacija": "69",
+  "komentar": "Već ste se testirali na koronu.",
+  "izvestaj": false,
+  "obavesten": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd5b086290e225f13455a"
+  },
+  "lekar": "david",
+  "naziv": "Rak test",
+  "trajanje": [
+    3,
+    30
+  ],
+  "pocetak": [
+    11,
+    0
+  ],
+  "cena": 1500,
+  "status": "zakazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-29",
+  "pacijent": "bosko",
+  "ordinacija": "69",
+  "komentar": "",
+  "izvestaj": false,
+  "obavesten": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd5be86290e225f134562"
+  },
+  "lekar": "david",
+  "naziv": "Pregled pluca",
+  "trajanje": [
+    3,
+    15
+  ],
+  "pocetak": [
+    15,
+    0
+  ],
+  "cena": 3500,
+  "status": "zakazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-29",
+  "pacijent": "bosko",
+  "ordinacija": "69",
+  "komentar": "",
+  "izvestaj": false,
+  "obavesten": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd5c186290e225f134567"
+  },
+  "lekar": "david",
+  "naziv": "Pregled pluca",
+  "trajanje": [
+    3,
+    15
+  ],
+  "pocetak": [
+    11,
+    0
+  ],
+  "cena": 3500,
+  "status": "zakazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-8-30",
+  "pacijent": "bosko",
+  "ordinacija": "69",
+  "komentar": "",
+  "izvestaj": false,
+  "obavesten": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd5c586290e225f13456c"
+  },
+  "lekar": "david",
+  "naziv": "Pregled pluca",
+  "trajanje": [
+    3,
+    15
+  ],
+  "pocetak": [
+    15,
+    0
+  ],
+  "cena": 3500,
+  "status": "zakazan",
+  "specijalizacija": "pulmolog",
+  "datum": "2023-7-30",
+  "pacijent": "bosko",
+  "ordinacija": "69",
+  "komentar": "",
+  "izvestaj": true,
+  "obavesten": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ecd7fd86290e225f1345a6"
+  },
+  "lekar": "david",
+  "naziv": "Plućna terapija",
+  "trajanje": [
+    0,
+    0
+  ],
+  "pocetak": [],
+  "cena": 1500,
+  "status": "izbrisan",
+  "specijalizacija": "pulmolog",
+  "izvestaj": false,
+  "__v": 0
+}]

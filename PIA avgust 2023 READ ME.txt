@@ -1,0 +1,40 @@
+FRONTEND
+
+U frontend folderu napraviti novu aplikaciju koristeći ng new app
+U frontend/app folderu instalirati sledece pakete 
+
+npm install bootstrap ngx-toastr --save @angular/animations --save ng2-file-upload --legacy-peer-deps mdb-angular-ui-kit angular-user-idle --save pdfmake html-to-pdfmake jspdf --save --save file-saver ng-qrcode --save --save @fullcalendar/angular @fullcalendar/core --save @fullcalendar/daygrid @fullcalendar/interaction --save @fullcalendar/timegrid date-fns
+npm install date-fns
+ng add angular-calendar
+
+U angular.json datoteci prekopirati sledeće linije koda (projects->architect->build)
+
+"styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+"scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+
+
+BACKEND
+
+
+ - pokretanje
+	npm install -g typescript (ovo uraditi samo jednom, ako u prazan backend projekat nije dovucen typescript module)
+	tsc (typescript compiler) //UVEK
+	npm run serve		  //UVEK
+
+U backend folderu instalirati sledeće pakete
+npm i express-fileupload
+npm install nodemailer -S
+
+U Backend folderu prekopirati uploads folder
+
+Za listu pakete koristiti sledeću komandu
+npm list -g
+
+Bazu obavezno nazvati av200599

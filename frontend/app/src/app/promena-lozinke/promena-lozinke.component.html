@@ -1,0 +1,8 @@
+<form class="text-center border border-light p-5">
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Stara lozinka" name="lozinkaStara" [(ngModel)]="lozinkaStara">
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Nova lozinka" name="lozinka1" [(ngModel)]="lozinka1">
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Porvrda nove lozinke" name="lozinka2" [(ngModel)]="lozinka2">
+   
+    <button class="btn btn-outline-primary" (click)="promeni()">Promena</button><br><br>
+    <button class="btn btn-outline-info" (click)="nazad()">Nazad</button>
+</form>
