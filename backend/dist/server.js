@@ -30,8 +30,8 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'Outlook',
     auth: {
-        user: 'av200599d@student.etf.bg.ac.rs',
-        pass: '2710001720060' // Your email password or an app-specific password
+        user: 'your@email.com',
+        pass: 'password' // Your email password or an app-specific password
     }
 });
 //TODO: POSSIBLY DELETE
